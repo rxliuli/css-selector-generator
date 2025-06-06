@@ -1,5 +1,5 @@
 import { ShadowProvider } from '@/integrations/shadow/ShadowProvider'
-import { ThemeProvider } from 'next-themes'
+import { ThemeProvider } from '@/integrations/theme/ThemeProvider'
 import { Toaster } from 'sonner'
 import { IndexPage } from './pages/IndexPage'
 
