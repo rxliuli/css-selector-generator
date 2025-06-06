@@ -1,5 +1,5 @@
 {
-  "name": "wxt-react-starter",
+  "name": "browser-extension-template",
   "description": "manifest.json description",
   "private": true,
   "version": "0.0.0",
@@ -14,7 +14,8 @@
     "build:safari": "vite-node lib/build/build-safari.ts",
     "compile": "tsc --noEmit",
     "postinstall": "wxt prepare",
-    "test": "vitest run"
+    "test": "vitest run",
+    "init-project": "vite-node lib/build/init.ts"
   },
   "dependencies": {
     "@radix-ui/react-dropdown-menu": "^2.1.15",

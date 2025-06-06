@@ -1,6 +1,6 @@
 env:
   DIRECTORY: .output
-  PROJECT_NAME: template
+  PROJECT_NAME: browser-extension-template
 
 name: Release
 

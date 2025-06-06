@@ -2,6 +2,17 @@
 
 这是一个浏览器扩展开发模版，使用 React/Shadcn/WXT，支持构建 Chrome/Edge/Firefox/Safari（需要 Mac 环境）兼容的浏览器扩展。
 
+## Init
+
+```sh
+git clone https://github.com/<your-github-username>/<your-project-name>.git
+cd <your-project-name>
+pnpm i
+pnpm init-project
+```
+
+然后根据提示输入项目名称，即可完成项目初始化。
+
 ## Dev
 
 将 Chrome 作为基准版本，Edge/Firefox/Safari 仅在需要发布时构建和测试，以及调试一些它们的**专属**问题。

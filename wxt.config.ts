@@ -14,7 +14,7 @@ export default defineConfig({
   manifestVersion: 3,
   manifest: (env) => {
     const manifest: UserManifest = {
-      name: 'Template',
+      name: 'Browser Extension Template',
       description:
         'A template for WXT, a WebExtension framework based on Vite and React',
       permissions: ['storage'],
