@@ -41,7 +41,6 @@ jobs:
       contents: write
     needs: Version
     if: ${{ needs.Version.outputs.version_changed == '1' }}
-    environment: Publish Extension
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
