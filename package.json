@@ -14,7 +14,7 @@
     "build:safari": "vite-node lib/build/build-safari.ts",
     "compile": "tsc --noEmit",
     "postinstall": "wxt prepare",
-    "test": "vitest run",
+    "test": "is-ci && pnpm exec playwright install || echo 'Not in CI' && vitest run",
     "init-project": "vite-node lib/build/init.ts"
   },
   "dependencies": {
@@ -42,6 +42,7 @@
     "@wxt-dev/module-react": "^1.1.3",
     "dotenv": "^16.5.0",
     "find-up": "^7.0.0",
+    "is-ci": "^4.1.0",
     "playwright": "^1.52.0",
     "typescript": "^5.8.3",
     "vite": "^6.3.5",
