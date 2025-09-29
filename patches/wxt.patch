@@ -1,0 +1,43 @@
+diff --git a/dist/virtual/unlisted-script-entrypoint.mjs b/dist/virtual/unlisted-script-entrypoint.mjs
+index 5e27390467e68f6ee88da6e06d705933b8fcc689..81920c165dea490ac74b64da3bb507254ebe1be7 100644
+--- a/dist/virtual/unlisted-script-entrypoint.mjs
++++ b/dist/virtual/unlisted-script-entrypoint.mjs
+@@ -17,10 +17,28 @@ const logger = {
+   error: (...args) => print(console.error, ...args)
+ };
+ 
+-const result = (async () => {
++const result = (() => {
+   try {
+     initPlugins();
+-    return await definition.main();
++  } catch (err) {
++    logger.error(
++      `Failed to initialize plugins for "${import.meta.env.ENTRYPOINT}"`,
++      err
++    );
++    throw err;
++  }
++  let result2;
++  try {
++    result2 = definition.main();
++    if (result2 && typeof result2 === "object" && "then" in result2) {
++      result2 = result2.catch((err) => {
++        logger.error(
++          `The unlisted script "${import.meta.env.ENTRYPOINT}" crashed on startup!`,
++          err
++        );
++        throw err;
++      });
++    }
+   } catch (err) {
+     logger.error(
+       `The unlisted script "${import.meta.env.ENTRYPOINT}" crashed on startup!`,
+@@ -28,6 +46,7 @@ const result = (async () => {
+     );
+     throw err;
+   }
++  return result2;
+ })();
+ 
+ export { result as default };

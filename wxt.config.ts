@@ -10,15 +10,17 @@ export default defineConfig({
         '@': __dirname,
       },
     },
+    build: {
+      minify: false,
+      sourcemap: true,
+    },
   }),
   manifestVersion: 3,
   manifest: (env) => {
     const manifest: UserManifest = {
-      name: 'Browser Extension Template',
+      name: 'CSS Selector Generator',
       description:
-        'A template for WXT, a WebExtension framework based on Vite and React',
-      permissions: ['storage'],
-      host_permissions: ['<all_urls>'],
+        'Generate unique CSS selector for any element on web page with ease.',
       author: {
         email: 'rxliuli@gmail.com',
       },
@@ -31,7 +33,7 @@ export default defineConfig({
           '128': 'icon/128.png',
         },
       },
-      homepage_url: 'https://rxliuli.com/projects/browser-extension-template',
+      homepage_url: 'https://rxliuli.com/projects/css-selector-generator',
     }
     if (env.browser === 'firefox') {
       manifest.browser_specific_settings = {

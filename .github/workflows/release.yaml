@@ -1,6 +1,6 @@
 env:
   DIRECTORY: .output
-  PROJECT_NAME: browser-extension-template
+  PROJECT_NAME: css-selector-generator
 
 name: Release
 
